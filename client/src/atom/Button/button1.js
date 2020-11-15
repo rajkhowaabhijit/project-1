@@ -2,7 +2,7 @@ import React from 'react'
 import { Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
     button1: {
       color: '#000',
       backgroundColor: '#5b009a40',

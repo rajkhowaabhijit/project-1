@@ -5,7 +5,6 @@ import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Box from '@material-ui/core/Box';
-import Deliverability from '../../layout/Reports/quick-question/Deliverablity';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -32,13 +31,6 @@ TabPanel.propTypes = {
     index: PropTypes.any.isRequired,
     value: PropTypes.any.isRequired,
 };
-
-function a11yProps(index) {
-    return {
-        id: `nav-tab-${index}`,
-        'aria-controls': `nav-tabpanel-${index}`,
-    };
-}
 
 function LinkTab(props) {
     return (
@@ -72,7 +64,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function NavTabs() {
+export default function NavTabs(props) {
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
 
@@ -93,16 +85,16 @@ export default function NavTabs() {
                         indicator: classes.indicator
                     }}
                 >
-                    <LinkTab label="Deliverability" href="/drafts" {...a11yProps(0)}
+                    <LinkTab label="Deliverability" href="/drafts" 
                              style={{ textTransform: "none", color: value === 0 ? "#5B009A" : "", fontWeight: value === 0 ? "bold" : "" }}/>
-                    <LinkTab label="Content Analysis" href="/trash" {...a11yProps(1)}
+                    <LinkTab label="Content Analysis" href="/trash"
                              style={{ textTransform: "none", color: value === 1 ? "#5B009A" : "", fontWeight: value === 1 ? "bold" : "" }}/>
-                    <LinkTab label="Action Status" href="/spam" {...a11yProps(2)}
+                    <LinkTab label="Action Status" href="/spam" 
                              style={{ textTransform: "none", color: value === 2 ? "#5B009A" : "", fontWeight: value === 2 ? "bold" : "" }}/>
                 </Tabs>
             </AppBar>
             <TabPanel value={value} index={0} className={classes.panel}>
-                <Deliverability />
+                {props.panel0}
             </TabPanel>
             <TabPanel value={value} index={1} className={classes.panel}>
                 Content Analysis page

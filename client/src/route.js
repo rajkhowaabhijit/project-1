@@ -1,9 +1,9 @@
 import React from 'react'
 
-// const Example = React.lazy(() => import('./layout/Example'))
+const QuickQuestion = React.lazy(() => import('./layout/Reports/quick-question'))
 
 const routes = [ 
-    // { path: '/example', name: 'Example', exact: true, component: Example }, 
+     { path: '/reports/quick-question', name: 'QuickQuestion', exact: true, component: QuickQuestion }, 
 ]
 
 export default routes
