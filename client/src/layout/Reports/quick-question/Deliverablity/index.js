@@ -86,7 +86,7 @@ const Deliverability = () => {
                     <Typography className={classes.textIP}>Sender IP 127.0.1 Reputation</Typography>
                 </Grid>
                 <Grid item xs={12}>
-                    <Button1 />
+                    <Button1 bgColor="#5b009a40" color="black">Monitor this IP Address</Button1>
                 </Grid>
             </Grid>
 
