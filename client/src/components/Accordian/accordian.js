@@ -1,5 +1,5 @@
 import React from "react";
-import { withStyles } from "@material-ui/core/styles";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
 import MuiAccordion from '@material-ui/core/Accordion';
 import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
 import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
@@ -55,13 +55,16 @@ const Accordion = withStyles({
   }))(MuiAccordionDetails);
 
   
-const styles = (theme) => ({
+const styles = makeStyles(theme => ({
   container: {
     marginRight: theme.spacing(1),
     padding: theme.spacing(2),
   },
   heading: {
     fontSize: theme.typography.pxToRem(15),
+    // [theme.breakpoints.down("md")]: {
+    //   fontSize: theme.typography.fontSize,
+    // },
     flexBasis: "33.33%",
     flexShrink: 0,
     color: "#000000",
@@ -71,29 +74,29 @@ const styles = (theme) => ({
     fontSize: theme.typography.pxToRem(15),
     color: theme.palette.text.secondary,
   },
-});
+}));
 
 const ControlledAccordions = (props) => {
   const { classes } = props;
   const [expanded, setExpanded] = React.useState(false);
 
-  const handleChange = (panel) => (event, isExpanded) => {
+  const handleChange = (panel) => (event,isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
 
   return (
       <Accordion
-        classesName={classes.customAccordion}
+        className={classes.customAccordion}
         expanded={expanded === "panel1"}
         onChange={handleChange("panel1")}
-        square = "false"
+        square
       >
         <AccordionSummary
           expandIcon={<ArrowDropDown />}
           aria-controls="panel1bh-content"
           id="panel1bh-header"
         >
-            <Grid container xs={12} justify="space-between" className={classes.container}>
+            <Grid container justify="space-between" className={classes.container}>
                 <Grid item>
                     <Typography className={classes.heading} variant="body2">
                         {props.heading}
@@ -104,9 +107,9 @@ const ControlledAccordions = (props) => {
                 </Grid>
             </Grid>
         </AccordionSummary>
-        {/* <AccordionDetails>
+        <AccordionDetails>
           <Typography>{props.content}</Typography>
-        </AccordionDetails> */}
+        </AccordionDetails> 
       </Accordion>
   );
 };

@@ -3,7 +3,7 @@ import {Paper, makeStyles,Table, TableBody, TableCell, TableContainer, TableHead
 import { MoreVert } from '@material-ui/icons'
 import SimpleBadge from '../../atom/Badge/badge'
 
-const useStyles = makeStyles(theme=>({
+const useStyles = makeStyles(()=>({
   table: {
     minWidth: 650,
   },
@@ -15,18 +15,6 @@ const useStyles = makeStyles(theme=>({
   }
 }))
 
-// const createData = (email, deliveredTo, senderIP, SPF, senderScore, blackList, deliveredIn) => {
-//   return { email, deliveredTo, senderIP, SPF, senderScore, blackList, deliveredIn }
-// }
-
-
-// const rows = [
-//     // createData(props.email, props.deliveredTo, props.senderIP, props.SPF, props.senderScore, props.blackList, props.deliveredIn),
-//     createData('ronnie_abs@gmail.com', 'inbox', '127.0.0.1', 'pass', 90, 90, '10/20/2020'),
-//     createData('ronnie_abs@gmail.com', 'inbox', '127.0.0.1', 'pass', 90, 90, '10/20/2020'),
-//     createData('ronnie_abs@gmail.com', 'inbox', '127.0.0.1', 'pass', 90, 90, '10/20/2020'),
-//     createData('ronnie_abs@gmail.com', 'inbox', '127.0.0.1', 'pass', 90, 90, '10/20/2020'),
-// ]
 
 const ReportTable = props => {
 
@@ -50,8 +38,8 @@ const ReportTable = props => {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {props.data.map((row) => (
-                        <TableRow key={row.email}>
+                    {props.data.map((row,i) => (
+                        <TableRow key={i}>
                             <TableCell component="th" scope="row" className={classes.data}>
                                 {row.email}
                             </TableCell>

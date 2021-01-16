@@ -1,6 +1,7 @@
 import React from 'react'
 import {makeStyles, Paper, Breadcrumbs, Link } from '@material-ui/core'
 import NavTabs from '../../../components/Tabs/report-tabs'
+import Deliverability from './Deliverablity'
 
 const useStyle = makeStyles(theme=>({
     main: {
@@ -24,7 +25,7 @@ const QuickQuestion = () => {
     return(
         <Paper elevation={0} className={classes.main}>
             <Breadcrumbs className={classes.breadcrumbs}>
-                <Link color="#5b009a" href="#">
+                <Link href="#">
                     Reports
                 </Link>
                 <Link
@@ -35,7 +36,7 @@ const QuickQuestion = () => {
                     Quick Question
                 </Link>
             </Breadcrumbs>
-            <NavTabs />
+            <NavTabs panel0={<Deliverability />} />
 
         </Paper>
     )
